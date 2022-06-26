@@ -385,6 +385,8 @@ main {
     display: flex;
     align-items: center;
     text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 .autoria {
