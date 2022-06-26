@@ -1,12 +1,6 @@
 const idTarefas = []
 
-let slideIndex = 1;
 
-let altura = window.screen.height;
-let largura = window.screen.width;
-//verifica largura
-if (largura <= 507)
-    showSlides(slideIndex);
 
 
 //requisao assync para api dos Simpsons
@@ -315,6 +309,16 @@ moveteste = (id, from, type) => {
     }
 
 }
+let slideIndex = 1;
+
+
+
+window.addEventListener("load", function (event) {
+    let largura = window.screen.width;
+    //verifica largura
+    if (largura <= 507)
+        window.showSlides(slideIndex);
+});
 
 window.addEventListener('resize', function (event) {
     var altura = window.screen.height;
