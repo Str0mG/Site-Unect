@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html id='html' class='' lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uTask 3.0</title>
+    <link rel="preload" href="style.css" as="style">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="./utils/x.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+
+<body onload="requestApi()">
+    <header>
+        <div class="header-topo">
+            <div class="header-topo-logo">
+                <img id='imgg' src="./utils/now.png" alt="Unect-Logo">
+            </div>
+
+            <div class="header-topo-title">
+                uTask 3.0
+            </div>
+
+            <div class="header-topo-mode" id="modos">
+                <button id="sun" onclick="dark()" class="light_mode">light_mode</button>
+                <!-- <span class='ball'>aaa </span> -->
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <div onclick='openModal("dv-modal2")' class="container-frase-dia">
+            <div class="container-box-frase-dia">
+                <div class="fundo-fundo">
+                    <div class="container-box-icon">
+                        <i id="lampada" class="material-icons">tips_and_updates</i>
+                    </div>
+                </div>
+
+                <div class="container-box-frase-api">
+                    <div class="container-box-frase">Frase do dia</div>
+                    <div class="container-box-api"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-main">
+            <a class="prev" onclick="plusSlides(-1)">navigate_before</a>
+            <div class="container-box-main">
+                <div class="box-main-header-first">
+                    <div class='box-main-header-first-text'>A fazer</div>
+                    <button id="box-main-header-first-btn" class="material-icons"
+                        onclick="openModal('dv-modal')">add</button>
+                </div>
+
+                <div class="box-main-body" id="aato">
+
+                </div>
+
+            </div>
+            <div class="container-box-main">
+                <div class="box-main-header-geral">Em andamento</div>
+                <div class="box-main-body" id='aux'></div>
+            </div>
+            <div class="container-box-main">
+                <div class="box-main-header-geral">Feito</div>
+                <div class="box-main-body" id="ehh"></div>
+            </div>
+            <a class="next" onclick="plusSlides(1)">navigate_next</a>
+        </div>
+
+        <div class="mobile-dot">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <div id="dv-modal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <u class="modal-frase">Nova Task</u><br>
+                    <div class="btn-close">
+                        <button id='btn2' class="material-icons" onclick="closeModal('dv-modal')">close</button>
+                    </div>
+
+                </div>
+                <div class="modal-body">
+                    <form id="form1">
+                        <label for="ftitle" class="modal-title">Título *</label><br>
+                        <input type="box-main-body-caixa-header-text2" id="fname" name="fname" MAXLENGTH=25><br>
+                        <label for="lname" class="modal-desc">Descrição</label><br>
+                        <textarea type="box-main-body-caixa-header-text2" id="lname" name="lname"></textarea>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id='clickhere' onclick="inserirTarefa('fname','lname')">Criar Task</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="edit" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <u class="modal-frase">Editar Task</u><br>
+                    <div class="btn-close">
+                        <button id='btn2' class="material-icons" onclick="closeModal('edit')">close</button>
+                    </div>
+
+                </div>
+                <div class="modal-body">
+                    <form id="form1">
+                        <label for="ftitle" class="modal-title">Título *</label><br>
+                        <input type="box-main-body-caixa-header-text2" id="fname2" name="fname" MAXLENGTH=25><br>
+                        <label for="lname" class="modal-desc">Descrição</label><br>
+                        <textarea type="box-main-body-caixa-header-text2" id="lname2" name="lname"></textarea>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id='clickhere2' onclick="salvar()">Salvar Task</button>
+                </div>
+            </div>
+        </div>
+        <!-- modal para frases no resposivo -->
+        <div id="dv-modal2" class="modal2">
+            <div class="modal-content2">
+                <div class="modal-header2">
+                    <div class="container-box-icon">
+                        <i id="lampada" class="material-icons">tips_and_updates</i>
+                    </div>
+                    <div class="text-frase-dia">Frase do dia</div><br>
+                    <div class="btn-close">
+                        <button id='btn2' class="material-icons" onclick="closeModal('dv-modal2')">close</button>
+                    </div>
+
+                </div>
+                <div class="container-box-frase-api2">
+                    <div class="container-box-api2"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="baixo">
+            <div class="mencao">
+                <div class="foot">© Processo de Trainee</div>
+                <a href="https://unect.com.br/" class="link-foot"> Unect Jr.</a>
+                <div class="foot"> 2022.1</div>
+            </div>
+
+            <div class="autoria">
+                <div class="firstt">Feito com</div>
+                <i class="material-icons" id="heart">favorite</i>
+                <div class="firstt">por</div>
+                <div class="thirdd">Gabriel Trombini</div>
+            </div>
+
+        </div>
+
+
+    </footer>
+    <script src="main.js"></script>
+</body>
+
+</html>
