@@ -88,9 +88,10 @@ inserirTarefa = (title, description) => {
         <div class="box-main-body-caixa-footer">
             <div class="container-body-caixa-footer">
                 <div class="container-body-caixa-footer-box">
-                    <div id="box-main-body-caixa-footer-text${auxId}" class="inferior">Ler descrição</div>
-                    <button id='expand_more${auxId}' class="expand_more"
-                        onclick="aparecer('box-main-body-caixa-footer-text${auxId}')">expand_more</button>
+                    <span id="span-click${auxId}" onclick="aparecer('box-main-body-caixa-footer-text${auxId}')" class="main-desc" >
+                        <div id="box-main-body-caixa-footer-text${auxId}" class="inferior">Ler descrição</div>
+                        <button id='expand_more${auxId}' class="expand_more">expand_more</button>
+                    </span>
                 </div>
                 <div class="box-main-body-caixa-footer-detalhes" id="minhaId${auxId}">
                 <p id="texttt${auxId}" class="texttt">${texto2}</p>
